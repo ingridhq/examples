@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Delivery Tracking Widget</title>
+    <script src="https://cdn-development.ingrid.com/delivery-tracking/bootstrap.js"></script>
+  </head>
+  <body>
+    <form id="configurationForm">
+      <label for="widget-mode">Widget mode:</label>
+      <div class="col-sm-8">
+        <select class="form-select" name="widget-mode" id="widget-mode">
+          <option value="search" selected>Search mode</option>
+          <option value="private">Private mode</option>
+        </select>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+    <div id="widget"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

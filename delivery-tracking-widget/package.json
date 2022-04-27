@@ -1,0 +1,20 @@
+{
+  "name": "delivery-tracking-widget",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "postinstall": "zx ./scripts/gen-env.mjs"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.4",
+    "vite": "^2.9.5",
+    "prettier": "2.6.2",
+    "zx": "6.1.0"
+  },
+  "prettier": {
+    "printWidth": 100
+  }
+}
