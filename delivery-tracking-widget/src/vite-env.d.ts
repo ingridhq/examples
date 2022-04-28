@@ -14,11 +14,17 @@ interface Window {
   IngridDeliveryTrackingWidgetApi: {
     renderSearchMode: (config: {
       containerId: string;
-      locale: string;
+      locale?: string;
       siteId: string;
-      identifier: string | null;
-      contact: string | null;
+      prefillIdentifier?: string;
+      prefillContact?: string;
     }) => void;
-    renderPrivateMode: (config: any) => void;
+    renderPrivateMode: (config: {
+      containerId: string;
+      locale?: string;
+      siteId: string;
+      identifier: string;
+      contact: string;
+    }) => void;
   };
 }

@@ -8,25 +8,21 @@ function setupWidget() {
   const widgetMode = formData.get("widget-mode");
   const params = new URLSearchParams(window.location.search);
 
-  const identifier = params.get("identifier");
-  const contact = params.get("contact");
+  const identifier = params.get("identifier") ?? "";
+  const contact = params.get("contact") ?? "";
 
   if (widgetMode === "search") {
     window.IngridDeliveryTrackingWidgetApi.renderSearchMode({
-      widgetMode: "search",
       containerId,
-      locale: "en-US",
       siteId: import.meta.env.VITE_SITE_ID,
-      identifier,
-      contact,
+      prefillIdentifier: identifier,
+      prefillContact: contact,
     });
   }
 
   if (widgetMode === "private") {
     window.IngridDeliveryTrackingWidgetApi.renderPrivateMode({
-      widgetMode: "private",
       containerId,
-      locale: "en-US",
       siteId: import.meta.env.VITE_SITE_ID,
       identifier,
       contact,
@@ -36,10 +32,11 @@ function setupWidget() {
 
 const clearContainer = () => {
   const container = document.getElementById(containerId);
-  if (!container) return;
 
-  while (container.hasChildNodes()) {
-    container.removeChild(container!.firstChild!);
+  while (container?.hasChildNodes()) {
+    if (container.firstChild) {
+      container.removeChild(container.firstChild);
+    }
   }
 };
 
