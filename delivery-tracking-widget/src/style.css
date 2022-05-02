@@ -1,0 +1,15 @@
+body {
+  margin: 0;
+  padding: 1rem;
+  display: grid;
+  place-items: start center;
+}
+
+#widget {
+  min-width: 375px;
+}
+
+form {
+  display: grid;
+  gap: 0.5rem;
+}
