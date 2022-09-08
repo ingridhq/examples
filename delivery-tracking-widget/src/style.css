@@ -8,8 +8,3 @@ body {
 #widget {
   min-width: 375px;
 }
-
-form {
-  display: grid;
-  gap: 0.5rem;
-}
