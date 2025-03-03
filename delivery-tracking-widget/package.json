@@ -1,6 +1,7 @@
 {
   "name": "delivery-tracking-widget",
   "private": true,
+  "type": "module",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
@@ -9,9 +10,9 @@
     "postinstall": "zx ./scripts/gen-env.mjs"
   },
   "devDependencies": {
-    "typescript": "^4.8.2",
-    "vite": "^3.1.0",
     "prettier": "^2.7.1",
+    "typescript": "^4.8.2",
+    "vite": "^6.2.0",
     "zx": "^7.0.8"
   },
   "prettier": {
