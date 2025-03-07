@@ -1,0 +1,9 @@
+const fileContent = `VITE_PRIVATE_KEY=
+VITE_SITE_ID=
+VITE_SESSION_ID=`;
+
+const filePath = ".env";
+if (!fs.existsSync(filePath)) {
+  fs.writeFileSync(".env", fileContent);
+  console.log(chalk.yellow("Fill out variables in .env file before runing!"));
+}
