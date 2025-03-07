@@ -1,5 +1,4 @@
 import { defineConfig, loadEnv } from "vite";
-import axios from "axios";
 
 const env = loadEnv("", process.cwd());
 export default defineConfig({
@@ -17,20 +16,19 @@ export default defineConfig({
         server.middlewares.use("/api/token", async (_req, res) => {
           res.setHeader("Content-Type", "application/json");
           try {
-            const { data } = await axios.get(
-              "https://api.ingrid.com/v1/receipt_widget/token",
-              {
-                params: {
-                  site_id: env.VITE_SITE_ID,
-                  session_id: env.VITE_SESSION_ID,
-                },
-                headers: {
-                  Authorization: `Bearer ${env.VITE_PRIVATE_KEY}`,
-                  "x-site-id": env.VITE_SITE_ID,
-                },
-              }
+            const url = new URL(
+              "https://api.ingrid.com/v1/receipt_widget/token"
             );
 
+            url.searchParams.append("site_id", env.VITE_SITE_ID);
+            url.searchParams.append("session_id", env.VITE_SESSION_ID);
+
+            const data = await fetch(url.toString(), {
+              headers: {
+                Authorization: `Bearer ${env.VITE_PRIVATE_KEY}`,
+                "x-site-id": env.VITE_SITE_ID,
+              },
+            }).then((res) => res.json());
             res.end(JSON.stringify({ token: data.token }));
           } catch (e) {
             res.statusCode = 500;

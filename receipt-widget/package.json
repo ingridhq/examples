@@ -10,7 +10,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "node-fetch": "^3.3.0",
     "vite": "^6.0.0"
   }
 }
