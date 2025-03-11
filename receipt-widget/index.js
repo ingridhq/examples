@@ -1,35 +1,15 @@
-import axios from "axios";
+async function setupWidget() {
+  const response = await fetch("/api/token");
+  const { token } = await response.json();
 
-async function generateToken() {
-  const url = "https://api-development.ingrid.com/v1/receipt_widget/token";
-  const { data } = await axios.get(url, {
-    headers: {
-      Authorization: `Bearer ${process.env.PRIVATE_KEY}`,
-      "x-site-id": process.env.SITE_ID,
-    },
-    params: {
-      site_id: process.env.SITE_ID,
-      session_id: process.env.SESSION_ID,
-    },
-  });
-  return data.token;
-}
-
-function initWidget(token) {
+  // Configure the widget with the token
   window.IngridReceiptWidgetApi.config({
     containerId: "widget",
     token,
-    siteId: process.env.SITE_ID,
-    sessionId: process.env.SESSION_ID,
+    siteId: import.meta.env.VITE_SITE_ID,
+    sessionId: import.meta.env.VITE_SESSION_ID,
     locale: "en-GB",
   });
 }
 
-async function setupWidget() {
-  const token = await generateToken();
-  initWidget(token);
-}
-
-window.addEventListener("load", () => {
-  setupWidget();
-});
+window.addEventListener("load", setupWidget);

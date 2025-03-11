@@ -1,5 +1,5 @@
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  server: { open: "/tracking" },
+  server: { port: 3000 },
 });

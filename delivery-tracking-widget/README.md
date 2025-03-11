@@ -1,4 +1,4 @@
-# Delivery Tracking widget integration example
+# Delivery Tracking Widget Example
 
 ## System requirements
 
@@ -7,10 +7,10 @@
 
 ## Instructions
 
-Go to directory:
+Create `.env` file with following contents:
 
-```shell
-cd delivery-tracking-widget
+```plaintext
+VITE_SITE_ID=your_site_id_from_IMP
 ```
 
 Install dependencies:
@@ -19,12 +19,10 @@ Install dependencies:
 npm install
 ```
 
-Enter `VITE_SITE_ID` (your `site_id` from IMP) into `.env`
-
 To run development server:
 
 ```shell
 npm run dev
 ```
 
-Visit `localhost:3000`
+Visit http://localhost:3000/

@@ -1,20 +1,15 @@
 {
-  "name": "receipt-widget",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "receipt-widget-example",
+  "private": true,
+  "version": "0.0.0",
   "scripts": {
-    "start": "webpack serve"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "postinstall": "node ./scripts/gen-env.mjs"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
-    "axios": "0.21.1",
-    "dotenv-webpack": "7.0.2",
-    "html-webpack-plugin": "5.3.1",
-    "webpack": "5.26.3",
-    "webpack-cli": "4.5.0",
-    "webpack-dev-server": "3.11.2"
+    "chalk": "^5.4.1",
+    "vite": "^6.2.0"
   }
 }

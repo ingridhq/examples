@@ -1,18 +1,33 @@
-# Receipt widget example
+# Receipt Widget Example
 
-1. Create `.env` file with following contents:
+## System requirements
+
+- node
+- npm
+
+## Instructions
+
+Create `.env` file with following contents:
 
 ```plaintext
-PRIVATE_KEY=
-SITE_ID=
-SESSION_ID=
+VITE_SITE_ID=your_site_id_from_IMP
+VITE_PRIVATE_KEY=your_base64_encoded_private_key_from_IMP
+VITE_SESSION_ID=checkout_session_id
 ```
 
-Where `PRIVATE_KEY` is base 64 encoded string.
+Install dependencies:
 
-2. Run `npm install`
+```shell
+npm install
+```
 
-3. Run `npm start` to run example
+To run development server:
+
+```shell
+npm run dev
+```
+
+Visit http://localhost:3001
 
 ## Notice
 
